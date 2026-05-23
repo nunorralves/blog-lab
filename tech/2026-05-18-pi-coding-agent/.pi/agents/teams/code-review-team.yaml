@@ -1,0 +1,22 @@
+name: code-review-team
+
+agents:
+  scout:
+    description: Scans codebase to understand problem context
+    model: deepseek/deepseek-v4-flash
+    canTalkTo: [planner]
+
+  planner:
+    description: Creates detailed implementation plans
+    model: deepseek/deepseek-v4-flash
+    canTalkTo: [reviewer, executor, scout]
+
+  reviewer:
+    description: Reviews code for bugs and best practices
+    model: deepseek/deepseek-v4-flash
+    canTalkTo: [planner, executor]
+
+  executor:
+    description: Implements code changes following the plan
+    model: deepseek/deepseek-v4-flash
+    canTalkTo: [planner, reviewer]

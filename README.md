@@ -9,16 +9,16 @@ grab what you need.
 
 | Folder | What's inside |
 |---|---|
-| `tech/` | Python, Pi, LLM agents, software patterns |
-| `electronics/` | Circuits, firmware, hardware experiments |
-| `management/` | Templates, trackers, process tools |
+| `tech/` | SW Engineering, code, languages, frameworks, LLM agents, software patterns |
+| `electronics/` | Projects, robotics, circuits, code, hardware experiments |
+| `management/` | Books, thoughts, templates, trackers, process, tools |
 
 ## Posts index
 
 | Post | Folder | Topics | Date |
 |---|---|---|---|
 | [Pi Agent Series](https://blog.name.com/pi-agent) | `tech/pi-agent-series` | pi · llm · python | 2025-03 |
-| [PWM LED Controller](https://blog.name.com/pwm-led) | `electronics/pwm-led-controller` | electronics | 2025-01 |
+
 
 ## License
 

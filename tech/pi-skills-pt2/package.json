@@ -1,0 +1,10 @@
+{
+  "name": "meeting-tools",
+  "version": "1.0.0",
+  "description": "Meeting transcript processing skills for Pi — extract action items, categorise by owner, format as brief",
+  "keywords": ["pi-package"],
+  "license": "MIT",
+  "pi": {
+    "skills": ["./skills"]
+  }
+}

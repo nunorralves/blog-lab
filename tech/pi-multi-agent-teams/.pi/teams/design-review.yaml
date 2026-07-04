@@ -1,0 +1,32 @@
+description: >-
+  Multi-perspective technical design review. Lead frames the problem and
+  owns the decision; reviewer assesses correctness and security; tester
+  identifies failure modes and testability gaps; writer reviews the spec
+  itself for clarity and completeness; product assesses user value and
+  stakeholder impact. Produces a consolidated design assessment with
+  verdict, risks, and open questions.
+lead: lead
+model: claude-opus-4-8
+
+members:
+  lead:         { canTalkTo: all }
+  reviewer:     { canTalkTo: all }
+  tester:       { canTalkTo: all }
+  writer:       { canTalkTo: [lead, product] }
+  product:      { canTalkTo: all }
+
+# Cross-talk guardrails — bound peer-to-peer delegation cost.
+crossTalk:
+  maxDepth: 3               # lead → member → peer chain length limit
+  maxFanout: 4              # max delegations one agent may start per turn
+  channelTokenBudget: 1500  # token budget for injected shared-channel posts
+
+# Convergence budget — push the lead to a decision within bounds.
+# Hard caps (turns/delegations/cost) refuse NEW delegations once hit.
+# Advisory time only nudges, never blocks. Set any dimension to 0 to disable.
+budget:
+  maxLeadTurns: 18            # lead turns before new delegations are refused
+  maxDelegations: 36          # total delegations across the session
+  maxCostUsd: 1.75            # cumulative session spend ceiling (USD)
+  softWarnAt: 0.8             # warn at 80% of any hard cap
+  advisoryWallClockMs: 600000 # 10 min — surfaced + nudged, never blocks

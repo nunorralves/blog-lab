@@ -1,0 +1,25 @@
+description: >-
+  Lightweight spec validation — parallel dispatch for fast turnaround.
+  Reviewer leads and assesses correctness; tester identifies failure modes;
+  writer checks clarity. All three run concurrently for speed. Use when
+  the design is small or well-understood and you need a quick quality gate
+  before build.
+lead: reviewer
+model: claude-sonnet-4-6
+
+members:
+  reviewer:   { canTalkTo: all }
+  tester:     { canTalkTo: all }
+  writer:     { canTalkTo: all }
+
+crossTalk:
+  maxDepth: 2
+  maxFanout: 3
+  channelTokenBudget: 1000
+
+budget:
+  maxLeadTurns: 10
+  maxDelegations: 15
+  maxCostUsd: 0.75
+  softWarnAt: 0.8
+  advisoryWallClockMs: 300000

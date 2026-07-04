@@ -1,0 +1,21 @@
+# .pi/teams/basic.yaml
+# The minimal multi-agent config from Post 01 — a star-topology team
+# with just `name`, `agents`, `canTalkTo`, and `model`.
+# This is the starting point. design-review.yaml shows where you go from here.
+
+name: basic
+description: "A minimal multi-agent team — one lead, two specialists, star topology."
+model: claude-opus-4-8
+
+agents:
+  lead:
+    description: "Team lead — owns the conversation and final decision."
+  reviewer:
+    description: "Reviews for correctness and completeness."
+  tester:
+    description: "Identifies failure modes and edge cases."
+
+canTalkTo:
+  - lead: [reviewer, tester]
+  - reviewer: [lead]
+  - tester: [lead]
